@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Delivery & Outcome | Antenatal Record</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --primary:#6a1b9a;     /* SAME SIDEBAR PURPLE */
+  --secondary:#ff9800;
+  --bg:#f5f6fa;
+  --card:#ffffff;
+  --text:#2c2c2c;
+  --muted:#777;
+  --border:#e0e0e0;
+  --success:#2e7d32;
+  --warning:#ed6c02;
+  --danger:#d32f2f;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:"Segoe UI", sans-serif;
+}
+
+body{
+  background:var(--bg);
+  display:flex;
+  min-height:100vh;
+}
+
+/* ===== SIDEBAR (UNCHANGED) ===== */
+.sidebar{
+  width:260px;
+  background:linear-gradient(180deg, var(--primary), #4a148c);
+  padding:20px;
+  color:#fff;
+}
+
+.sidebar a{
+  display:block;
+  padding:12px 15px;
+  margin-bottom:6px;
+  text-decoration:none;
+  color:#fff;
+  border-radius:6px;
+  font-size:14px;
+}
+
+.sidebar a:hover,
+.sidebar a.active{
+  background:rgba(255,255,255,0.15);
+}
+
+/* ===== MAIN ===== */
+.main{
+  flex:1;
+  padding:25px;
+}
+
+.header{
+  margin-bottom:25px;
+}
+
+.header h1{
+  font-size:22px;
+  color:var(--primary);
+}
+
+.header span{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  border-radius:10px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.05);
+}
+
+.card h3{
+  margin-bottom:15px;
+  font-size:16px;
+  color:var(--primary);
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+
+th, td{
+  padding:12px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+}
+
+th{
+  background:#fafafa;
+  font-weight:600;
+}
+
+/* BADGES */
+.badge{
+  padding:4px 10px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:600;
+}
+
+.badge.success{
+  background:#e8f5e9;
+  color:var(--success);
+}
+
+.badge.warning{
+  background:#fff4e5;
+  color:var(--warning);
+}
+
+.badge.danger{
+  background:#fdecea;
+  color:var(--danger);
+}
+
+/* BUTTONS */
+.btn{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:6px 12px;
+  font-size:12px;
+  border-radius:5px;
+  cursor:pointer;
+  margin-right:5px;
+}
+
+.btn.secondary{
+  background:var(--secondary);
+}
+
+/* DETAIL VIEW */
+.detail-box{
+  margin-top:15px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:15px;
+  background:#fafafa;
+}
+
+.detail-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.detail-item label{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.detail-item div{
+  font-size:14px;
+  font-weight:500;
+}
+
+/* NOTE */
+.note{
+  margin-top:15px;
+  background:#fff;
+  padding:15px;
+  border-left:4px solid var(--secondary);
+  border-radius:6px;
+  font-size:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .sidebar{display:none;}
+  .detail-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <a href="antenatal.html">Patient Lookup</a>
+  <a href="profile.html">Profile</a>
+  <a href="pregnancy-history.html">Pregnancy History</a>
+  <a href="current-pregnancy.html">Current Pregnancy</a>
+  <a href="antenatal-visits.html">Antenatal Visits</a>
+  <a href="labs-imaging.html">Labs & Imaging</a>
+  <a href="medications.html">Medications</a>
+  <a href="delivery.html" class="active">Delivery</a>
+  <a href="consent-audit.html">Consent & Audit</a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <div class="header">
+    <h1>Delivery & Outcome</h1>
+    <span>Labour, delivery details and maternal–neonatal outcomes</span>
+  </div>
+
+  <!-- DELIVERY SUMMARY -->
+  <div class="card">
+    <h3>Delivery Summary</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Gestational Age</th>
+          <th>Mode of Delivery</th>
+          <th>Outcome</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10 Feb 2026</td>
+          <td>39 weeks + 2 days</td>
+          <td>Spontaneous Vaginal Delivery</td>
+          <td><span class="badge success">Live Birth</span></td>
+          <td>
+            <button class="btn">View Details</button>
+            <button class="btn secondary">View Neonatal</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DELIVERY DETAILS -->
+  <div class="card">
+    <h3>Delivery Details</h3>
+
+    <div class="detail-box">
+      <div class="detail-grid">
+        <div class="detail-item">
+          <label>Onset of Labour</label>
+          <div>Spontaneous</div>
+        </div>
+
+        <div class="detail-item">
+          <label>Duration of Labour</label>
+          <div>8 hours</div>
+        </div>
+
+        <div class="detail-item">
+          <label>Analgesia Used</label>
+          <div>None</div>
+        </div>
+
+        <div class="detail-item">
+          <label>Attending Clinician</label>
+          <div>Dr. A. Mohammed</div>
+        </div>
+
+        <div class="detail-item">
+          <label>Complications</label>
+          <div>None</div>
+        </div>
+
+        <div class="detail-item">
+          <label>Blood Loss</label>
+          <div>250 ml</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      Labour and delivery were uneventful. Mother tolerated the procedure well.
+    </div>
+  </div>
+
+  <!-- NEONATAL OUTCOME -->
+  <div class="card">
+    <h3>Neonatal Outcome</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Sex</th>
+          <th>Birth Weight</th>
+          <th>Apgar Score</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Male</td>
+          <td>3.2 kg</td>
+          <td>8 / 9</td>
+          <td><span class="badge success">Stable</span></td>
+          <td>
+            <button class="btn">View Notes</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      Baby cried immediately after birth. No resuscitation required.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

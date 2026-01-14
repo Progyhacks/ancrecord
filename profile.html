@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Patient Profile – Antenatal Record System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<style>
+/* =====================
+   GLOBAL RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  color: #333;
+}
+
+/* =====================
+   HEADER
+===================== */
+header {
+  background: #0f4c75;
+  color: #fff;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 18px;
+}
+
+header span {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* =====================
+   LAYOUT
+===================== */
+.container {
+  display: flex;
+  min-height: calc(100vh - 60px);
+}
+
+.sidebar {
+  width: 240px;
+  background: #1b262c;
+  color: #fff;
+  padding-top: 20px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background: #0f4c75;
+}
+
+/* =====================
+   MAIN
+===================== */
+.main {
+  flex: 1;
+  padding: 24px;
+}
+
+/* =====================
+   CARD
+===================== */
+.card {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+  background: #fafafa;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* =====================
+   PROFILE HEADER
+===================== */
+.profile-top {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  color: #666;
+}
+
+.profile-info h2 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.profile-info p {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* =====================
+   BADGES
+===================== */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  color: #fff;
+  margin-top: 6px;
+}
+
+.badge.low {
+  background: #2e7d32;
+}
+
+.badge.high {
+  background: #c62828;
+}
+
+/* =====================
+   FORM
+===================== */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+label {
+  font-size: 12px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button.primary {
+  background: #0f4c75;
+  color: #fff;
+}
+
+button.secondary {
+  background: #777;
+  color: #fff;
+}
+
+/* =====================
+   INFO ROWS
+===================== */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+  opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Patient Profile</h1>
+  <span>Maternal Health Digital Record</span>
+</header>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <a href="antenatal.html">Dashboard</a>
+    <a href="profile.html" class="active">Profile</a>
+    <a href="pregnancy-history.html">Pregnancy History</a>
+    <a href="current-pregnancy.html">Current Pregnancy</a>
+    <a href="antenatal-visits.html">Antenatal Visits</a>
+    <a href="labs-imaging.html">Labs & Imaging</a>
+    <a href="medications.html">Medications</a>
+    <a href="delivery.html">Delivery</a>
+    <a href="consent-audit.html">Consent & Audit</a>
+    
+    
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- PROFILE SUMMARY -->
+    <div class="card">
+      <div class="card-body">
+        <div class="profile-top">
+          <div class="avatar">AY</div>
+          <div class="profile-info">
+            <h2>Amina Yusuf</h2>
+            <p>MHID: MHID-2026-ABJ-000234</p>
+            <p>DOB: 12 Apr 1996</p>
+            <span class="badge low">LOW RISK</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERSONAL DETAILS -->
+    <div class="card">
+      <div class="card-header">Personal Information</div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div>
+            <label>Full Name</label>
+            <input value="Amina Yusuf">
+          </div>
+          <div>
+            <label>Phone Number</label>
+            <input value="08012345678">
+          </div>
+          <div>
+            <label>Date of Birth</label>
+            <input type="date" value="1996-04-12">
+          </div>
+          <div>
+            <label>Marital Status</label>
+            <select>
+              <option>Married</option>
+              <option>Single</option>
+            </select>
+          </div>
+          <div>
+            <label>Address</label>
+            <input value="Gwarinpa, Abuja">
+          </div>
+          <div>
+            <label>Next of Kin</label>
+            <input value="Yusuf Ahmed">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEDICAL INFO -->
+    <div class="card">
+      <div class="card-header">Medical Information</div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div>
+            <label>Blood Group</label>
+            <input value="O+">
+          </div>
+          <div>
+            <label>Genotype</label>
+            <input value="AA">
+          </div>
+          <div>
+            <label>Allergies</label>
+            <input value="None">
+          </div>
+          <div>
+            <label>Chronic Conditions</label>
+            <input value="None">
+          </div>
+          <div>
+            <label>Previous Surgeries</label>
+            <textarea>None</textarea>
+          </div>
+          <div>
+            <label>Special Notes</label>
+            <textarea>Patient stable, no complications.</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="card">
+      <div class="card-body">
+        <div class="actions">
+          <button class="primary">Save Changes</button>
+          <button class="secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © 2026 Maternal Health Digital Record System
+</footer>
+
+</body>
+</html>

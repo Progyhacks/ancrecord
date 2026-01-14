@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Current Pregnancy – Antenatal Record System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* =====================
+   GLOBAL RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  color: #333;
+}
+
+/* =====================
+   HEADER
+===================== */
+header {
+  background: #0f4c75;
+  color: #fff;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 18px;
+}
+
+header span {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* =====================
+   LAYOUT
+===================== */
+.container {
+  display: flex;
+  min-height: calc(100vh - 60px);
+}
+
+.sidebar {
+  width: 240px;
+  background: #1b262c;
+  color: #fff;
+  padding-top: 20px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background: #0f4c75;
+}
+
+/* =====================
+   MAIN
+===================== */
+.main {
+  flex: 1;
+  padding: 24px;
+}
+
+/* =====================
+   CARD
+===================== */
+.card {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+  background: #fafafa;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* =====================
+   SUMMARY GRID
+===================== */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.summary-box {
+  background: #f8fafc;
+  border: 1px solid #e1e5ea;
+  border-radius: 6px;
+  padding: 16px;
+  text-align: center;
+}
+
+.summary-box h2 {
+  font-size: 22px;
+  color: #0f4c75;
+}
+
+.summary-box p {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* =====================
+   FORM GRID
+===================== */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+label {
+  font-size: 12px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* =====================
+   BADGES
+===================== */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  color: #fff;
+}
+
+.badge.low {
+  background: #2e7d32;
+}
+
+.badge.high {
+  background: #c62828;
+}
+
+/* =====================
+   NOTES
+===================== */
+.note {
+  font-size: 13px;
+  background: #f9f9f9;
+  border-left: 4px solid #0f4c75;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  background: #0f4c75;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #777;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+  opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Current Pregnancy</h1>
+  <span>Maternal Health Digital Record</span>
+</header>
+
+<div class="container">
+
+  <!-- SIDEBAR (STANDARD) -->
+  <div class="sidebar">
+    <a href="antenatal.html">Dashboard</a>
+    <a href="profile.html">Profile</a>
+    <a href="pregnancy-history.html">Pregnancy History</a>
+    <a href="current-pregnancy.html" class="active">Current Pregnancy</a>
+    <a href="antenatal-visits.html">Antenatal Visits</a>
+    <a href="labs-imaging.html">Labs & Imaging</a>
+    <a href="medications.html">Medications</a>
+    <a href="delivery.html">Delivery</a>
+    <a href="consent-audit.html">Consent & Audit</a>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- QUICK SUMMARY -->
+    <div class="card">
+      <div class="card-header">Pregnancy Summary</div>
+      <div class="card-body">
+        <div class="summary-grid">
+          <div class="summary-box">
+            <h2>G3</h2>
+            <p>Gravidity</p>
+          </div>
+          <div class="summary-box">
+            <h2>22 weeks</h2>
+            <p>Gestational Age</p>
+          </div>
+          <div class="summary-box">
+            <h2>19 Jun 2026</h2>
+            <p>Estimated Delivery Date</p>
+          </div>
+          <div class="summary-box">
+            <h2><span class="badge low">LOW RISK</span></h2>
+            <p>Risk Classification</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOKING DETAILS -->
+    <div class="card">
+      <div class="card-header">Booking Details</div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div>
+            <label>Last Menstrual Period (LMP)</label>
+            <input type="date" value="2025-09-12">
+          </div>
+          <div>
+            <label>Booking Date</label>
+            <input type="date" value="2025-11-20">
+          </div>
+          <div>
+            <label>Booking Gestational Age</label>
+            <input value="9 weeks">
+          </div>
+          <div>
+            <label>Expected Delivery Date (EDD)</label>
+            <input type="date" value="2026-06-19">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLINICAL INFORMATION -->
+    <div class="card">
+      <div class="card-header">Clinical Information</div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div>
+            <label>Blood Group</label>
+            <input value="O+">
+          </div>
+          <div>
+            <label>Genotype</label>
+            <input value="AA">
+          </div>
+          <div>
+            <label>Baseline Blood Pressure</label>
+            <input value="120 / 80 mmHg">
+          </div>
+          <div>
+            <label>Baseline Weight</label>
+            <input value="62 kg">
+          </div>
+          <div>
+            <label>HIV Status</label>
+            <select>
+              <option>Negative</option>
+              <option>Positive</option>
+            </select>
+          </div>
+          <div>
+            <label>HBsAg</label>
+            <select>
+              <option>Negative</option>
+              <option>Positive</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RISK & NOTES -->
+    <div class="card">
+      <div class="card-header">Risk Assessment & Notes</div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div>
+            <label>Risk Level</label>
+            <select>
+              <option>Low Risk</option>
+              <option>High Risk</option>
+            </select>
+          </div>
+          <div>
+            <label>Identified Risk Factors</label>
+            <textarea>Previous miscarriage (G2)</textarea>
+          </div>
+          <div>
+            <label>Clinical Notes</label>
+            <textarea>Patient stable, routine antenatal care ongoing.</textarea>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>Note:</strong> Any change in risk level will automatically reflect across all visits and delivery planning.
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="card">
+      <div class="card-body">
+        <div class="actions">
+          <button>Save Pregnancy Details</button>
+          <button class="secondary">Proceed to Antenatal Visits</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © 2026 Maternal Health Digital Record System
+</footer>
+
+</body>
+</html>
